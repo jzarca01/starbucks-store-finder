@@ -16,5 +16,5 @@ module.exports = ({ lat, lon } = {} => {
     return fetch(apiUrl, options)
     .then(res => res.text())
     .then(res => JSON.parse(res))
-    .catch(err => console.log(err))
+    .catch(err => console.log(err)
 });
