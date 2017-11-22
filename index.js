@@ -4,27 +4,31 @@ const cheerio = require('cheerio')
 const request = require('request-promise-native')
 
 module.exports = ({ lat, lon } = {}) => {
-  const apiUrl = 'https://www.starbucks.fr/store-locator'
+    return new Promise((resolve, reject) => {
+      
+        if (!lat || !lon) {
+        return reject(new TypeError('Options are required'))
+        }
+        
+        const options = { 
+          method: 'GET',
+          url: 'https://www.starbucks.fr/bff/locations',
+          qs: { lat: lat, lng: lon },
+          headers: 
+          { 
+              'x-requested-with': 'XMLHttpRequest',
+              accept: 'application/json' 
+          }
+        };
 
-  return new Promise((resolve, reject) => {
-    if (!lat || !lon) {
-      return reject(new TypeError('Options are required'))
-    }
-
-    const api = `${apiUrl}?map=${lat},${lon}`
-
-    request(api).then(res => {
-      if (res) {
-        const $ = cheerio.load(res)
-        const json = JSON.parse($('#bootstrapData').text())
-        const stores = json.storeLocator.locationState.locations
-
-        resolve(stores)
-      }
-
-      reject(
-        new TypeError(`Couldn't find any Starbucks store on this location`)
-      )
-    })
-  })
+        request(options).then(res => {
+        if (res) {
+            resolve(JSON.parse(stores));
+        }
+        reject(
+            new TypeError(`Couldn't find any Starbucks store on this location`)
+        )
+        })
+        .catch(err => console.log);
+    });
 }
