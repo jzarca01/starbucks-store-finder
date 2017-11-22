@@ -3,15 +3,15 @@
 const cheerio = require('cheerio')
 const request = require('request-promise-native')
 
-module.exports = ({ lat, lng, city, region, country } = {}) => {
-  const apiUrl = 'https://www.starbucks.com/store-locator'
+module.exports = ({ lat, lon } = {}) => {
+  const apiUrl = 'https://www.starbucks.fr/store-locator'
 
   return new Promise((resolve, reject) => {
-    if ((!lat || !lng, !city, !region, !country)) {
+    if (!lat || !lon) {
       return reject(new TypeError('Options are required'))
     }
 
-    const api = `${apiUrl}?map=${lat},${lng}&place=${city},${region},${country}`
+    const api = `${apiUrl}?map=${lat},${lon}`
 
     request(api).then(res => {
       if (res) {
