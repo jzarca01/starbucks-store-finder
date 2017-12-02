@@ -4,8 +4,8 @@ module.exports = (coordinates => {
     return getStores(coordinates);
 });
 
-function getStores({lat, lon}) {
-    const apiUrl = `https://www.starbucks.fr/bff/locations?lat=${lat}&lng=${lon}`;
+function getStores({lat, lng}) {
+    const apiUrl = `https://www.starbucks.fr/bff/locations?lat=${lat}&lng=${lng}`;
     
     const options = { 
         method: 'GET',

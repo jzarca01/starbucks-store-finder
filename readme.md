@@ -1,16 +1,10 @@
-# starbucks-store-finder [![Build Status](https://travis-ci.org/bukinoshita/starbucks-store-finder.svg?branch=master)](https://travis-ci.org/bukinoshita/starbucks-store-finder)
-
-> Starbucks store finder :coffee:
-
-> Package renamed to `starbucks-store-finder` due trademark.
-
+# Starbucks store finder :coffee:
 
 ## Install
 
 ```
-$ yarn add starbucks-store-finder
+yarn add jzarca01/starbucks-store-finder
 ```
-
 
 ## Usage
 
@@ -22,7 +16,6 @@ const opts = { lat: '-23.585324', lng: '-46.286264,9z' }
 await starbucks(opts)
 // => [list, of, starbucks, stores, ...]
 ```
-
 
 ## API
 
@@ -50,34 +43,3 @@ Type: `string`<br/>
 Required
 
 Longitude
-
-#### city
-
-Type: `string`<br/>
-Required
-
-City
-
-#### region
-
-Type: `string`<br/>
-Required
-
-Region
-
-#### country
-
-Type: `string`<br/>
-Required
-
-Country
-
-
-## Related
-
-- [starbucks-cli](https://github.com/bukinoshita/starbucks-cli) — Starbucks on Command Line
-
-
-## License
-
-MIT © [Bu Kinoshita](https://bukinoshita.io)
