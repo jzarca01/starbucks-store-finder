@@ -19,4 +19,6 @@ const getStores = async ({lat, lng}) => {
     })
 }
 
-module.exports = getStores;
+module.exports = (coordinates => {
+    return getStores(coordinates);
+});
