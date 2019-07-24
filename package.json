@@ -1,6 +1,6 @@
 {
   "name": "starbucks-store-finder",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "> Starbucks store finder :coffee:",
   "main": "index.js",
   "scripts": {
@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/jzarca01/starbucks-store-finder#readme",
   "dependencies": {
-    "node-fetch": "^1.7.3"
+    "axios": "^0.19.0"
   }
 }
